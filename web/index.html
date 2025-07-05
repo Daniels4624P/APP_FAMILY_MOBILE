@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>React Native Auth</title>
+    <script>
+        // Polyfill inmediato para import.meta antes de cargar cualquier módulo
+        (function() {
+            'use strict';
+            
+            if (typeof globalThis !== 'undefined') {
+                if (!globalThis.importMeta) {
+                    Object.defineProperty(globalThis, 'importMeta', {
+                        value: {
+                            env: {},
+                            url: window.location.href
+                        },
+                        writable: false,
+                        configurable: false
+                    });
+                }
+            }
+
+            if (typeof window !== 'undefined') {
+                if (!window.importMeta) {
+                    Object.defineProperty(window, 'importMeta', {
+                        value: {
+                            env: {},
+                            url: window.location.href
+                        },
+                        writable: false,
+                        configurable: false
+                    });
+                }
+            }
+
+            console.log('✅ Import.meta polyfill loaded in HTML');
+        })();
+    </script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
